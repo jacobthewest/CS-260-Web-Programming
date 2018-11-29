@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 80%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 10;
+      }
+    </style>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <center>
+      <form>
+       <h1>Find Your IP Adress Location</h1>
+        <input type="text" id="IP" value=" Enter An IP Address"> &nbsp;
+        <input id="searchButton" type="submit" value="Submit"><br/><br/>
+        Lat:<span id='lat'> </span>
+        Lon:<span id='lon'> </span>
+      </form>
+    </center>
+        
+    <div id="map"></div>
+    
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js">
+    </script>
+  
+    <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+      var lat;
+      var lng;
+      var query;
+      var map, infoWindow;
+      $("#searchButton").click(function(e){
+          e.preventDefault()
+          var val = $("#IP").val();
+          var urlw = "http://ip-api.com/json/" + val;
+          $.ajax({
+            url : urlw,
+            dataType : "json",
+            success : function(parsed_json) {
+              lat = parsed_json['lat'];
+              lng = parsed_json['lon'];
+              query = parsed_json['query'];
+              console.log(lat);
+              console.log(lng);
+              var myLatLng = {lat: lat, lng: lng};
+              map = new google.maps.Map(document.getElementById('map'), {
+                  center: {lat: lat, lng: lng},
+                  zoom: 8
+                });
+              var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: query
+              });
+            }
+          });
+      });      
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 40.2338, lng: -111.6585},
+          zoom: 6
+        });
+        infoWindow = new google.maps.InfoWindow;
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuIdNZFF4DE9QMus7lIfH2S_PbM5RUvxk&callback=initMap">
+    </script>
+  </body>
+</html>

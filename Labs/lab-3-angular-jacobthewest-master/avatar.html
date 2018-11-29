@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- include our dependency on angular -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+<script src="avatar.js"></script>
+<link rel="stylesheet" type="text/css" href="avatar.css">
+  <meta charset="utf-8">
+  <title>User Avatar Template</title>
+</head>
+<body>
+  <div ng-app='app' ng-controller='mainCtrl' id="mainDiv">
+    <h1>Create new user</h1>
+
+    <form name='userForm' ng-submit='addNew(userForm)' id="cribForm">
+      <ul>
+        <li><input class="input" placeholder='Name' ng-model='userForm.name'/></li>
+        <li><input class="input" placeholder='Email' ng-model='userForm.email'/></li>
+        <li><input class="input" placeholder='Image Url' ng-model='userForm.url'/></li>
+        <li><button type='submit' id="addNewButton">Add New</button></li>
+      </ul>
+    </form>
+    
+        <!--
+     We've clearly gone mad and have replaced the div, img, and h4 tags with what
+     appears to be a mythical `avatar` tag.
+     Note we have a property of user, passing a value of user. This will be the user object
+     from the ng-repeat
+    -->
+  
+      <!--
+        ng-repeat loops through the users array bound to the scope of mainCtrl and gives
+        us access to the user object in each index so we can reference the user properties
+      -->
+      <ul class='User-list'>
+    <li ng-repeat='user in users'>
+      <avatar user='user' />
+    </li>
+  </ul>
+    </ul>
+  </div>
+</body>
+</html>

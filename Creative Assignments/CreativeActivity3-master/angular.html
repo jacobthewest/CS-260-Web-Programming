@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- include our dependency on angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script src="angular.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="angular.css">
+    <meta charset="utf-8">
+    <title>Creative Activity #3</title>
+</head>
+
+<body>
+    <div ng-app='app' ng-controller='number' id="mainDiv" class="container, jumbotron">
+        <h1>Random Number Fact Generator</h1>
+
+        <form class="form-group" name='EnterANumberField' ng-submit='processNumber()' id="cribForm">
+            <input class="form-control my-2" type="text" placeholder='Enter a whole number' ng-model='numberForm' /></li>
+            <select name='triviaOption' ng-model="triviaSelect" ng-options="option.name for option in availableOptions" class="form-control my-2"></select>
+            <button type='submit' id="addNewNumber" class="btn btn-primary btn-lg btn-block my-2">Generate Number Info</button></li>
+        </form>
+        <h2 class="display-1">Random Number Fact: {{numberString}}</h2>
+    </div>
+</body>
+
+</html>

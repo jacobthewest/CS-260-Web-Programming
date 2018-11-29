@@ -1,0 +1,60 @@
+a {
+  color: #00B7FF;
+}
+
+label{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+label:hover, label:active, input:hover+label, input:active+label {
+    background: #ff8e0c;
+    color: red;
+    
+}
+
+body {
+   background-image: url("https://webgradients.com/public/webgradients_png/053%20Soft%20Grass.png");
+   background-color: #ff0000;
+   background-size: cover;
+   padding: 50px;
+   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h1{
+  font-family: impact, Arial Narrow, sans-serif;
+  font-size:100px;
+  font-weight: bold;
+}
+
+h2{
+  font-family: impact, Arial Narrow, sans-serif;
+  font-size:30px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  margin-top: 250px;
+  margin-left: 20px;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  margin-top: 250px;
+  padding-left: 50px;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<style>
+    #styleMe{
+        color:red;
+        font-weight:bold;
+        padding: 10px;
+        margin: auto;
+        right: 50%;
+    }
+    h2{
+        text-align:center;
+    }
+    #form{
+        margin: auto;
+        width: 50%;
+        border: 3px solid green;
+        padding: 10px;
+        position: auto;
+    }
+    p{
+       padding: 10px;
+       right: 50%;
+    }
+</style>
+
+<body ng-app="myApp" ng-controller="todoCtrl">
+
+<h2>My Family History List</h2>
+
+<form ng-submit="todoAdd()" id="form">
+    <input type="text" ng-model="personInput" size="20" placeholder="Person">
+    <input type="text" ng-model="fatherInput" size="20" placeholder="Father">
+    <input type="text" ng-model="motherInput" size="20" placeholder="Mother">
+    <input type="submit" value="Add New">
+</form>
+
+<br>
+
+<div ng-repeat="x in todoList"; id="styleMe">
+    <input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoText"></span>
+</div>
+
+<p><button ng-click="remove()">Remove marked</button></p>
+
+<script>
+var app = angular.module('myApp', []); 
+app.controller('todoCtrl', function($scope) {
+    $scope.todoList = [{todoText:'Frank Jones, Billy Jones, Millie Smith', done:false}];
+
+    $scope.todoAdd = function() {
+        var stringOfAllValues = $scope.personInput + ", " + $scope.fatherInput + ", " + $scope.motherInput;
+        $scope.todoList.push({todoText:stringOfAllValues, done:false});
+        $scope.todoInput = "";
+    };
+
+    $scope.remove = function() {
+        var oldList = $scope.todoList;
+        $scope.todoList = [];
+        angular.forEach(oldList, function(x) {
+            if (!x.done) $scope.todoList.push(x);
+        });
+    };
+});
+</script>
+
+</body>
+</html>

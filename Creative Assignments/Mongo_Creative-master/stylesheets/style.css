@@ -1,0 +1,17 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+body {
+   background-image: url("https://images-na.ssl-images-amazon.com/images/I/71e684Lj7OL._SY355_.png");
+   background-color: #cccccc;
+}
+
+h1{
+  color:red;
+}

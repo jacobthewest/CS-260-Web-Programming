@@ -1,0 +1,100 @@
+.User-list {
+  list-style: none;
+}
+
+.Avatar {
+  text-align: center;  
+}
+
+.Avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 90%;
+}
+
+.Avatar h4 {
+  text-transform: capitalize;
+  color: black;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+html { 
+  background: url("https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#addNewButton {
+    position: relative;
+    background-color: #4CAF50;
+    border: none;
+    font-size: 28px;
+    color: #FFFFFF;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#addNewButton:after {
+    content: "";
+    background: #90EE90;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+#addNewButton:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+.input{
+   padding: 20px;
+    width: 200px;
+}
+
+h1{
+  font-family: "Zebrazil","Times New Roman", Times, serif;
+  text-align: center;
+  font-size: 46px;
+  
+}
+
+ul{
+   list-style-type: none;
+}
+
+#mainDiv{
+   margin: auto;
+    width: 50%;
+    border: 100px solid black;
+    padding: 10px;
+}
+
+#cribForm{
+   margin: auto;
+   width: 50%;
+   border: 40px solid black;
+   padding: 10px;
+}
+#cribForm.ul.li.input{
+  margin: auto;
+   width: 50%;
+   border: 3px solid black;
+   padding: 10px;
+}

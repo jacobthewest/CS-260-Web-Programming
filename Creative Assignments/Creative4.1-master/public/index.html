@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+<script src="javascripts/app.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+  <meta charset="utf-8">
+  <title>Creative Assignment 4</title>
+</head>
+<body>
+
+  <div id='app' ng-app='app' ng-controller='mainCtrl' class="split left">
+    
+    <h1 style="color: white;">Favorite Gif Library</h1>
+    <form id="newPoki" ng-submit="addPoki()" style="color: white;">
+      Gif name: <input type="text" ng-model="Name" value=""><br>
+      Url gif: <input type="url" ng-model="Url" value=""><br>
+      <input type="submit" value="Submit">
+      <p style="color: white;">After hitting the submit button, refresh the page to see the changes</p>
+    </form>
+
+    <!--<div ng-if='!pokemon.length' class='no-pokemon center stretch'>-->
+    <!--  <h1 class='h1'>-->
+    <!--    Set up your endpoint at `/pokemon` to get this view working-->
+    <!--  </h1>-->
+    <!--</div>-->
+    <div class="split right">
+      <ul ng-if='pokemon.length' class='list center stretch'>
+      <li ng-repeat='p in pokemon' class='pokemon'>
+        <h1>{{ p.name }}</h1>
+        <img class='avatar' ng-src="{{p.avatarUrl}}" />
+      </li>
+    </ul>
+  </div>
+  </div>
+  
+
+</body>
+</html>

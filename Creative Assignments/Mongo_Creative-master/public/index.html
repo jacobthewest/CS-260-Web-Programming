@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Art Favorites</title>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="javascripts/comments.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+
+</head>
+<body>
+    <h1 style="text-align: center;">My Personal Art Gallery</h1>
+    <div class="split left">
+        <form id="commentForm" action="" class="centered">
+        <label for="name">Level Of Beauty (1-10)</label><input type="text" id="name" placeholder="Enter a whole number"><br><br>
+        <label for="comment">URL </label><input type="text" id="comment" placeholder="Image Address of Art Piece"><br><br>
+        </form>
+        
+        <button id="postComment" class="centered">Add to Gallery</button>
+        <button id="getComments" class="centered">Display Gallery</button>
+        <button id="deleteComments" class="centered">Delete Gallery</button><br>
+    </div>
+    
+    <div class="split right">
+        <form id="commentForm" action="">
+        <br><label for="name">Search By Beauty: </label><input type="text" id="searchName" placeholder="Search by number"><br>
+        </form>
+        
+        
+    </div>
+    <br><br><h2 style="margin-top: 150px">Art Gallery...</h2>
+        
+        <div id="json"></div>
+        <div id="done"></div>
+        <div id="comments"></div>
+        
+</body>
+</html>

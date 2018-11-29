@@ -1,0 +1,44 @@
+<!--This is the file to satisfy activity #2 in the homeworks for CS 260-->
+<!DOCTYPE html>
+<html>
+ <head>
+  <style>
+   #li {
+     color:red;
+   }
+  </style>
+ </head>
+ <body>
+ <h1>Activity #3</h1>
+ <h2>Here is a button:</h2>
+ <button onclick="activity3();">I am a button, click me!</button>
+ 
+ <p id="youClickedMe">Result of the button click: </p>
+ 
+ <button onclick="unBold();">Unbold the bolded text...</button>
+ 
+ <p id="li">This is some text inside of a p tag.</p>
+ 
+ <h2 style="text-align:center">My Unordered List</h2>
+ <ul style="text-align:center">
+     <li id="li">This is red text</li>
+     <li style="color:blue">This is blue text</li>
+     <li style="color:green">This is green text</li>
+     <li style="color:purple">This is purple text</li>
+ </ul>
+ 
+ <script>
+    function activity3(){
+         document.getElementById("youClickedMe").innerHTML = "Result of the button click: You clicked me, hooray!";
+         bold(document.getElementById("youClickedMe"));
+    }
+    function bold(id_of_p_tag){
+        id_of_p_tag.style.fontWeight =  '700';
+    }
+    function unBold(){
+        document.getElementById("youClickedMe").style.fontWeight = '350';
+    }
+ </script>
+ 
+ </body>
+</html>
